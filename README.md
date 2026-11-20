@@ -9,7 +9,7 @@
 
 *The Assignments tab shows a Blank profile with the bottom face button set to Honorable Execution, manual targeting and a 500 ms recovery.*
 
-[Download the Windows beta](https://github.com/mystic-llama/uocontrollerbridge/releases/tag/v4.0.0-beta.1) · [Report a beta issue](https://github.com/mystic-llama/uocontrollerbridge/issues)
+[Windows releases](https://github.com/mystic-llama/uocontrollerbridge/releases) · [Build from source](docs/BUILD_WINDOWS.md) · [Report a beta issue](https://github.com/mystic-llama/uocontrollerbridge/issues)
 
 ## What it does
 
@@ -30,7 +30,7 @@ The Windows app reads the controller and handles pointer and keyboard input. Its
 
 Use Windows 10 or 11 x64, a gamepad recognized by Windows, and ClassicUO with Razor Enhanced running inside the client. One selected client and character are controlled at a time.
 
-1. From the [v4.0.0-beta.1 release](https://github.com/mystic-llama/uocontrollerbridge/releases/tag/v4.0.0-beta.1), choose **Windows Setup** for shortcuts or extract the **Windows portable ZIP** in full and open `ControllerStudio.exe`. Both builds include the desktop runtime.
+1. On the [Releases page](https://github.com/mystic-llama/uocontrollerbridge/releases), look for **v4.0.0-beta.1**. Use **Windows Setup** for shortcuts or extract the **Windows portable ZIP** in full and open `ControllerStudio.exe`. Both builds include the desktop runtime.
 2. Connect the controller and log in to UO. Open **Controller → Connection setup → Learn controller** and follow the prompts. Select your character's game window and click **Use this window**.
 3. Click **Install / update Razor listener** and choose the parent scripts folder used by Razor Enhanced. In Razor, add `MysticLlamaController/razor_listener.py`, turn **Loop** off, and click **Play**.
 4. In **Assignments**, select a profile, pick a control and choose its action. Click **Apply** to save. In **Controller**, click **Start**, then focus the selected game window to try your bindings.
