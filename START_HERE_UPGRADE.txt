@@ -1,0 +1,53 @@
+CONTROLLER STUDIO 4.0.0-beta.1
+
+ONE-TIME UPDATE
+1. Stop the controller, exit the application from its tray icon, and stop the
+   Razor listener.
+2. Extract this complete SOURCE ZIP into your existing source folder, replacing
+   files. Keep your working .venv folder.
+3. Open PowerShell in that folder and run:
+
+   .\.venv\Scripts\python.exe build_windows.py
+
+4. Run release\ControllerStudio-4.0.0-beta.1-Windows-Setup.exe.
+5. Open Controller > Connection setup > Install / update Razor listener.
+   Choose the same scripts parent folder you used previously.
+6. Start the updated listener in Razor, with Loop off.
+
+IMPORTANT FOR THE REPORTED BUMPER / TRIGGER PROBLEM
+Open Controller > Connection setup > Check bumpers / triggers.
+Follow the four prompts. Each control is pressed, released and pressed again to
+confirm. Save when finished. This preserves your stick calibration, profiles and
+all action assignments. If the controller was running, the application stops and
+restarts it for this check; you do not need to restart the listener again.
+If other controls also have invalid mappings, use Learn controller for full setup.
+
+WHAT CHANGED
+- Controller combines the old Play and Setup pages. Connection setup can collapse.
+- Assignments uses a clickable modern controller. List view is optional.
+- Preferences and Support remain. Profile selection lives only in Assignments.
+- No extra L bumper assignments, switches or hidden runtime layers remain.
+- Default mappings are preserved for every profile. A local backup of the old
+  configuration is saved once as bindings.before-4.0.json in your settings folder.
+- Prepare weapon switching was removed. Existing working weapon actions/hotkeys
+  are retained; empty legacy weapon-cycle entries are hidden from the picker.
+
+ASSIGN A BUTTON
+Open Assignments, select a controller button, choose its action, then Apply.
+Mouse: tap once to click, twice to double-click, hold to drag, release to drop.
+Hover a diagram button to see its assignment. Green shows reported input.
+For keyboard shortcuts, click the recorder and PRESS the combination.
+
+MOUSE FEEDBACK
+Controller shows whether Windows accepted the last mouse press or release.
+Acceptance does not prove the game received it. If the selected UO client is
+running as administrator, the bridge needs matching privileges; Preferences has
+Restart as administrator. Reset input clears controller-owned pending work.
+Support > Copy diagnostics includes button-source IDs and recent transitions.
+
+BUILDING IN A NEW EMPTY SOURCE FOLDER
+   py -3.12 -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install --only-binary=:all: -r requirements-build.txt
+   .\.venv\Scripts\python.exe build_windows.py
+
+This ZIP is source code. A Windows installer is created by the build above.

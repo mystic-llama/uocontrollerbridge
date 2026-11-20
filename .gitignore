@@ -1,0 +1,32 @@
+# Python and local tooling
+__pycache__/
+*.py[cod]
+.venv/
+.controller-venv/
+.pytest_cache/
+*.spec
+
+# Build output and local archives
+/build/
+/dist/
+/release/
+/Old Versions/
+/.controller-publish-*/
+*.zip
+*.rar
+*.7z
+
+# Runtime configuration, connection state and logs
+bindings.json
+bindings.before-*.json
+launcher_setup.json
+controller_studio_connection.json
+host_control.json
+host_status.json
+*.lock
+*.log
+*.tmp
+*.bak
+gump_preview/
+[Dd]esktop.ini
+Thumbs.db

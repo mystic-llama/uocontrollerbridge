@@ -1,0 +1,1231 @@
+{
+  "_comment": "Strict JSON: _comment keys are documentation. Physical south/east/west/north identify button positions, independent of printed letters. All raw presets must be checked with --inspect.",
+  "token": "",
+  "preset": "8bitdo_switch",
+  "device_name_contains": "",
+  "poll_hz": 120,
+  "debug": false,
+  "bridge": {
+    "_comment": "socket = primary TCP mode; hotkey = pynput key injection. Loopback only. TTL discards old actions, ACK confirms API dispatch rather than game/server success.",
+    "mode": "socket",
+    "host": "127.0.0.1",
+    "port": 47651,
+    "queue_limit": 32,
+    "action_ttl_ms": 600,
+    "ack_timeout_ms": 2500,
+    "state_interval_ms": 50
+  },
+  "focus": {
+    "_comment": "Game input requires the selected foreground title AND executable plus the connected listener process ID. Cursor can operate globally when enabled.",
+    "require_focus": true,
+    "window_title_contains": [],
+    "process_names": [
+      "ClassicUO.exe"
+    ],
+    "exclude_titles_containing": [
+      "Razor"
+    ]
+  },
+  "input": {
+    "_comment": "Stick deadzones are radial/rescaled. Move/run thresholds apply after rescaling. Triggers use press/release hysteresis then debounce. repeat_ms=0 means one event per press; >=50 enables continuous repeat. Trigger strength is sent in value for custom listener extensions.",
+    "left_deadzone": 0.18,
+    "right_deadzone": 0.2,
+    "move_threshold": 0.28,
+    "run_threshold": 0.82,
+    "debounce_ms": 20,
+    "trigger_press": 0.62,
+    "trigger_release": 0.42,
+    "run_control": "",
+    "scroll_control": "rb",
+    "movement_stick": "left",
+    "mouse_stick": "right"
+  },
+  "modifier_controls": [],
+  "razor": {
+    "_comment": "RE API calls stay on one script thread. Target waits poll, never WaitForTarget. Actual movement API can wait for server acknowledgement. Intervals are extra delay after API return; tune to shard latency.",
+    "loop_pause_ms": 10,
+    "movement_timeout_ms": 250,
+    "reconnect_ms": 1000,
+    "walk_interval_ms": 200,
+    "run_interval_ms": 100,
+    "blocked_retry_ms": 350,
+    "show_gump": false
+  },
+  "presets": {
+    "xinput": {
+      "_comment": "Common Windows SDL joystick layout: Xbox wired/wireless and 8BitDo X mode. Confirm axes: some drivers expose triggers as 2 and 5.",
+      "left_stick": [
+        0,
+        1
+      ],
+      "right_stick": [
+        2,
+        3
+      ],
+      "controls": {
+        "south": {
+          "button": 0
+        },
+        "east": {
+          "button": 1
+        },
+        "west": {
+          "button": 2
+        },
+        "north": {
+          "button": 3
+        },
+        "lb": {
+          "button": 4
+        },
+        "rb": {
+          "button": 5
+        },
+        "back": {
+          "button": 6
+        },
+        "start": {
+          "button": 7
+        },
+        "ls": {
+          "button": 8
+        },
+        "rs": {
+          "button": 9
+        },
+        "dpad_up": {
+          "hat": 0,
+          "component": 1,
+          "sign": 1
+        },
+        "dpad_down": {
+          "hat": 0,
+          "component": 1,
+          "sign": -1
+        },
+        "dpad_left": {
+          "hat": 0,
+          "component": 0,
+          "sign": -1
+        },
+        "dpad_right": {
+          "hat": 0,
+          "component": 0,
+          "sign": 1
+        },
+        "lt": {
+          "axis": 4,
+          "rest": -1.0,
+          "full": 1.0
+        },
+        "rt": {
+          "axis": 5,
+          "rest": -1.0,
+          "full": 1.0
+        }
+      },
+      "left_stick_sign": [
+        1,
+        1
+      ],
+      "right_stick_sign": [
+        1,
+        1
+      ]
+    },
+    "8bitdo_dinput": {
+      "_comment": "Common 8BitDo D mode; raw numbering varies by firmware. Face positions shown for typical B/A/Y/X indexing. Check every control.",
+      "left_stick": [
+        0,
+        1
+      ],
+      "right_stick": [
+        2,
+        5
+      ],
+      "controls": {
+        "south": {
+          "button": 1
+        },
+        "east": {
+          "button": 0
+        },
+        "west": {
+          "button": 3
+        },
+        "north": {
+          "button": 2
+        },
+        "lb": {
+          "button": 4
+        },
+        "rb": {
+          "button": 5
+        },
+        "back": {
+          "button": 8
+        },
+        "start": {
+          "button": 9
+        },
+        "ls": {
+          "button": 10
+        },
+        "rs": {
+          "button": 11
+        },
+        "dpad_up": {
+          "hat": 0,
+          "component": 1,
+          "sign": 1
+        },
+        "dpad_down": {
+          "hat": 0,
+          "component": 1,
+          "sign": -1
+        },
+        "dpad_left": {
+          "hat": 0,
+          "component": 0,
+          "sign": -1
+        },
+        "dpad_right": {
+          "hat": 0,
+          "component": 0,
+          "sign": 1
+        },
+        "lt": {
+          "button": 6
+        },
+        "rt": {
+          "button": 7
+        }
+      },
+      "left_stick_sign": [
+        1,
+        1
+      ],
+      "right_stick_sign": [
+        1,
+        1
+      ]
+    },
+    "8bitdo_switch": {
+      "_comment": "Common 8BitDo Switch/Pro HID layout. Digital triggers. B/A/Y/X physical south/east/west/north.",
+      "left_stick": [
+        0,
+        1
+      ],
+      "right_stick": [
+        2,
+        3
+      ],
+      "controls": {
+        "south": {
+          "button": 0
+        },
+        "east": {
+          "button": 1
+        },
+        "west": {
+          "button": 2
+        },
+        "north": {
+          "button": 3
+        },
+        "lb": {
+          "button": 4
+        },
+        "rb": {
+          "button": 5
+        },
+        "back": {
+          "button": 8
+        },
+        "start": {
+          "button": 9
+        },
+        "ls": {
+          "button": 10
+        },
+        "rs": {
+          "button": 11
+        },
+        "dpad_up": {
+          "hat": 0,
+          "component": 1,
+          "sign": 1
+        },
+        "dpad_down": {
+          "hat": 0,
+          "component": 1,
+          "sign": -1
+        },
+        "dpad_left": {
+          "hat": 0,
+          "component": 0,
+          "sign": -1
+        },
+        "dpad_right": {
+          "hat": 0,
+          "component": 0,
+          "sign": 1
+        },
+        "lt": {
+          "button": 6
+        },
+        "rt": {
+          "button": 7
+        }
+      },
+      "left_stick_sign": [
+        1,
+        1
+      ],
+      "right_stick_sign": [
+        1,
+        1
+      ]
+    },
+    "dualshock4": {
+      "_comment": "Common native DS4 HID/DirectInput layout. Cross/Circle/Square/Triangle physical positions. Avoid DS4Windows duplicate physical+virtual devices.",
+      "left_stick": [
+        0,
+        1
+      ],
+      "right_stick": [
+        2,
+        5
+      ],
+      "controls": {
+        "south": {
+          "button": 1
+        },
+        "east": {
+          "button": 2
+        },
+        "west": {
+          "button": 0
+        },
+        "north": {
+          "button": 3
+        },
+        "lb": {
+          "button": 4
+        },
+        "rb": {
+          "button": 5
+        },
+        "back": {
+          "button": 8
+        },
+        "start": {
+          "button": 9
+        },
+        "ls": {
+          "button": 10
+        },
+        "rs": {
+          "button": 11
+        },
+        "dpad_up": {
+          "hat": 0,
+          "component": 1,
+          "sign": 1
+        },
+        "dpad_down": {
+          "hat": 0,
+          "component": 1,
+          "sign": -1
+        },
+        "dpad_left": {
+          "hat": 0,
+          "component": 0,
+          "sign": -1
+        },
+        "dpad_right": {
+          "hat": 0,
+          "component": 0,
+          "sign": 1
+        },
+        "lt": {
+          "axis": 3,
+          "rest": -1.0,
+          "full": 1.0
+        },
+        "rt": {
+          "axis": 4,
+          "rest": -1.0,
+          "full": 1.0
+        }
+      },
+      "left_stick_sign": [
+        1,
+        1
+      ],
+      "right_stick_sign": [
+        1,
+        1
+      ]
+    },
+    "dualsense": {
+      "_comment": "Common native DualSense HID/DirectInput layout; verify with inspector. Touchpad/mic/home intentionally unbound.",
+      "left_stick": [
+        0,
+        1
+      ],
+      "right_stick": [
+        2,
+        5
+      ],
+      "controls": {
+        "south": {
+          "button": 1
+        },
+        "east": {
+          "button": 2
+        },
+        "west": {
+          "button": 0
+        },
+        "north": {
+          "button": 3
+        },
+        "lb": {
+          "button": 4
+        },
+        "rb": {
+          "button": 5
+        },
+        "back": {
+          "button": 8
+        },
+        "start": {
+          "button": 9
+        },
+        "ls": {
+          "button": 10
+        },
+        "rs": {
+          "button": 11
+        },
+        "dpad_up": {
+          "hat": 0,
+          "component": 1,
+          "sign": 1
+        },
+        "dpad_down": {
+          "hat": 0,
+          "component": 1,
+          "sign": -1
+        },
+        "dpad_left": {
+          "hat": 0,
+          "component": 0,
+          "sign": -1
+        },
+        "dpad_right": {
+          "hat": 0,
+          "component": 0,
+          "sign": 1
+        },
+        "lt": {
+          "axis": 3,
+          "rest": -1.0,
+          "full": 1.0
+        },
+        "rt": {
+          "axis": 4,
+          "rest": -1.0,
+          "full": 1.0
+        }
+      },
+      "left_stick_sign": [
+        1,
+        1
+      ],
+      "right_stick_sign": [
+        1,
+        1
+      ]
+    }
+  },
+  "layers": [
+    {
+      "name": "base",
+      "modifiers": [],
+      "bindings": {
+        "south": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "east": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "west": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "north": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "dpad_up": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "dpad_down": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "dpad_left": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "dpad_right": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "lt": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "rt": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "back": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "start": {
+          "action": "unbound",
+          "repeat_ms": 0
+        },
+        "rs": {
+          "action": "unbound",
+          "repeat_ms": 0
+        }
+      }
+    }
+  ],
+  "actions": {
+    "cast_heal": {
+      "type": "cast",
+      "school": "Magery",
+      "spell": "Heal",
+      "target": "self",
+      "recovery_ms": 800,
+      "cooldown_ms": 800,
+      "target_timeout_ms": 4000
+    },
+    "cast_cure": {
+      "type": "cast",
+      "school": "Magery",
+      "spell": "Cure",
+      "target": "self",
+      "recovery_ms": 1000,
+      "cooldown_ms": 1000,
+      "target_timeout_ms": 4000
+    },
+    "cast_greater_heal": {
+      "type": "cast",
+      "school": "Magery",
+      "spell": "Greater Heal",
+      "target": "self",
+      "recovery_ms": 1800,
+      "cooldown_ms": 1800,
+      "target_timeout_ms": 4000
+    },
+    "cast_energy_bolt": {
+      "type": "cast",
+      "school": "Magery",
+      "spell": "Energy Bolt",
+      "target": "last",
+      "recovery_ms": 2400,
+      "cooldown_ms": 2400,
+      "target_timeout_ms": 4000
+    },
+    "cast_invisibility": {
+      "type": "cast",
+      "school": "Magery",
+      "spell": "Invisibility",
+      "target": "self",
+      "recovery_ms": 2400,
+      "cooldown_ms": 2400,
+      "target_timeout_ms": 4000
+    },
+    "bandage_self": {
+      "type": "use_item",
+      "item_id": "0x0E21",
+      "hue": -1,
+      "target": "self",
+      "recovery_ms": 250,
+      "cooldown_ms": 6000,
+      "target_timeout_ms": 1500,
+      "_comment": "Cooldown is configurable for dexterity/shard bandage duration. API invocation does not confirm completed healing."
+    },
+    "drink_heal": {
+      "type": "use_item",
+      "item_id": "0x0F0C",
+      "hue": -1,
+      "recovery_ms": 150,
+      "cooldown_ms": 10000,
+      "_comment": "Find matching bottle art recursively in backpack. Set serial to pin an exact item or change art/hue for custom shards."
+    },
+    "drink_cure": {
+      "type": "use_item",
+      "item_id": "0x0F07",
+      "hue": -1,
+      "recovery_ms": 150,
+      "cooldown_ms": 1000,
+      "_comment": "Find matching bottle art recursively in backpack. Set serial to pin an exact item or change art/hue for custom shards."
+    },
+    "drink_refresh": {
+      "type": "use_item",
+      "item_id": "0x0F0B",
+      "hue": -1,
+      "recovery_ms": 150,
+      "cooldown_ms": 1000,
+      "_comment": "Find matching bottle art recursively in backpack. Set serial to pin an exact item or change art/hue for custom shards."
+    },
+    "drink_agility": {
+      "type": "use_item",
+      "item_id": "0x0F08",
+      "hue": -1,
+      "recovery_ms": 150,
+      "cooldown_ms": 1000,
+      "_comment": "Find matching bottle art recursively in backpack. Set serial to pin an exact item or change art/hue for custom shards."
+    },
+    "target_self": {
+      "type": "target",
+      "target": "self"
+    },
+    "target_last": {
+      "type": "target",
+      "target": "last"
+    },
+    "cancel_target": {
+      "type": "cancel_target"
+    },
+    "attack_last": {
+      "type": "attack_last",
+      "cooldown_ms": 200
+    },
+    "cycle_target": {
+      "type": "cycle_target",
+      "range": 12,
+      "notorieties": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "cooldown_ms": 200,
+      "_comment": "Selects last target only; does not attack. Includes neutral/criminal/enemy/red. Adjust for shard and avoid allies/pets."
+    },
+    "switch_weapon": {
+      "type": "equip_cycle",
+      "serials": [],
+      "recovery_ms": 350,
+      "cooldown_ms": 400,
+      "_comment": "Character-specific serials cannot be guessed. Enable razor.capture_weapons_on_start, run listener, target weapons then Escape; it saves serials here. Empty list logs a clear configuration error."
+    },
+    "primary_ability": {
+      "type": "ability",
+      "slot": "primary"
+    },
+    "secondary_ability": {
+      "type": "ability",
+      "slot": "secondary"
+    },
+    "meditate": {
+      "type": "skill",
+      "skill": "Meditation",
+      "cooldown_ms": 1000
+    },
+    "mouse_left": {
+      "type": "mouse_button",
+      "button": "left"
+    },
+    "mouse_right": {
+      "type": "mouse_button",
+      "button": "right"
+    },
+    "unbound": {
+      "type": "none"
+    },
+    "step_north": {
+      "type": "step",
+      "direction": "North",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "step_right": {
+      "type": "step",
+      "direction": "Right",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "step_east": {
+      "type": "step",
+      "direction": "East",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "step_down": {
+      "type": "step",
+      "direction": "Down",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "step_south": {
+      "type": "step",
+      "direction": "South",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "step_left": {
+      "type": "step",
+      "direction": "Left",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "step_west": {
+      "type": "step",
+      "direction": "West",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "step_up": {
+      "type": "step",
+      "direction": "Up",
+      "run": false,
+      "cooldown_ms": 150
+    },
+    "pet_all_follow_me": {
+      "type": "pet_command",
+      "command": "all follow me",
+      "label": "Pets: All Follow Me",
+      "category": "pets",
+      "cooldown_ms": 250
+    },
+    "pet_all_come": {
+      "type": "pet_command",
+      "command": "all come",
+      "label": "Pets: All Come",
+      "category": "pets",
+      "cooldown_ms": 250
+    },
+    "pet_all_guard_me": {
+      "type": "pet_command",
+      "command": "all guard me",
+      "label": "Pets: All Guard Me",
+      "category": "pets",
+      "cooldown_ms": 250
+    },
+    "pet_all_kill": {
+      "type": "pet_command",
+      "command": "all kill",
+      "label": "Pets: All Kill",
+      "category": "pets",
+      "cooldown_ms": 250
+    },
+    "pet_all_stay": {
+      "type": "pet_command",
+      "command": "all stay",
+      "label": "Pets: All Stay",
+      "category": "pets",
+      "cooldown_ms": 250
+    },
+    "pet_all_stop": {
+      "type": "pet_command",
+      "command": "all stop",
+      "label": "Pets: All Stop",
+      "category": "pets",
+      "cooldown_ms": 250
+    },
+    "use_last_item": {
+      "type": "use_last_item",
+      "label": "Use last item",
+      "category": "items"
+    },
+    "arm_last_weapon": {
+      "type": "arm_last_weapon",
+      "label": "Arm last weapon",
+      "category": "items"
+    },
+    "disarm_both": {
+      "type": "hands",
+      "operation": "disarm",
+      "hand": "both",
+      "label": "Disarm both hands",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "disarm_left": {
+      "type": "hands",
+      "operation": "disarm",
+      "hand": "left",
+      "label": "Disarm left hand",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "disarm_right": {
+      "type": "hands",
+      "operation": "disarm",
+      "hand": "right",
+      "label": "Disarm right hand",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "arm_both": {
+      "type": "hands",
+      "operation": "arm",
+      "hand": "both",
+      "label": "Arm both hands",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "arm_left": {
+      "type": "hands",
+      "operation": "arm",
+      "hand": "left",
+      "label": "Arm left hand",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "arm_right": {
+      "type": "hands",
+      "operation": "arm",
+      "hand": "right",
+      "label": "Arm right hand",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "toggle_both": {
+      "type": "hands",
+      "operation": "toggle",
+      "hand": "both",
+      "label": "Toggle both hands",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "toggle_left": {
+      "type": "hands",
+      "operation": "toggle",
+      "hand": "left",
+      "label": "Toggle left hand",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "toggle_right": {
+      "type": "hands",
+      "operation": "toggle",
+      "hand": "right",
+      "label": "Toggle right hand",
+      "category": "items",
+      "cooldown_ms": 400
+    },
+    "agent_autoloot_start": {
+      "type": "agent",
+      "agent": "AutoLoot",
+      "operation": "start",
+      "label": "AutoLoot: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_autoloot_stop": {
+      "type": "agent",
+      "agent": "AutoLoot",
+      "operation": "stop",
+      "label": "AutoLoot: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_autoloot_toggle": {
+      "type": "agent",
+      "agent": "AutoLoot",
+      "operation": "toggle",
+      "label": "AutoLoot: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_scavenger_start": {
+      "type": "agent",
+      "agent": "Scavenger",
+      "operation": "start",
+      "label": "Scavenger: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_scavenger_stop": {
+      "type": "agent",
+      "agent": "Scavenger",
+      "operation": "stop",
+      "label": "Scavenger: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_scavenger_toggle": {
+      "type": "agent",
+      "agent": "Scavenger",
+      "operation": "toggle",
+      "label": "Scavenger: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_bandageheal_start": {
+      "type": "agent",
+      "agent": "BandageHeal",
+      "operation": "start",
+      "label": "BandageHeal: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_bandageheal_stop": {
+      "type": "agent",
+      "agent": "BandageHeal",
+      "operation": "stop",
+      "label": "BandageHeal: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_bandageheal_toggle": {
+      "type": "agent",
+      "agent": "BandageHeal",
+      "operation": "toggle",
+      "label": "BandageHeal: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_organizer_start": {
+      "type": "agent",
+      "agent": "Organizer",
+      "operation": "start",
+      "label": "Organizer: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_organizer_stop": {
+      "type": "agent",
+      "agent": "Organizer",
+      "operation": "stop",
+      "label": "Organizer: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_organizer_toggle": {
+      "type": "agent",
+      "agent": "Organizer",
+      "operation": "toggle",
+      "label": "Organizer: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_restock_start": {
+      "type": "agent",
+      "agent": "Restock",
+      "operation": "start",
+      "label": "Restock: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_restock_stop": {
+      "type": "agent",
+      "agent": "Restock",
+      "operation": "stop",
+      "label": "Restock: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_restock_toggle": {
+      "type": "agent",
+      "agent": "Restock",
+      "operation": "toggle",
+      "label": "Restock: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_dress_start": {
+      "type": "agent",
+      "agent": "Dress",
+      "operation": "start",
+      "label": "Dress: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_dress_stop": {
+      "type": "agent",
+      "agent": "Dress",
+      "operation": "stop",
+      "label": "Dress: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_dress_toggle": {
+      "type": "agent",
+      "agent": "Dress",
+      "operation": "toggle",
+      "label": "Dress: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_undress_start": {
+      "type": "agent",
+      "agent": "UnDress",
+      "operation": "start",
+      "label": "UnDress: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_undress_stop": {
+      "type": "agent",
+      "agent": "UnDress",
+      "operation": "stop",
+      "label": "UnDress: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_undress_toggle": {
+      "type": "agent",
+      "agent": "UnDress",
+      "operation": "toggle",
+      "label": "UnDress: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_buyagent_start": {
+      "type": "agent",
+      "agent": "BuyAgent",
+      "operation": "start",
+      "label": "BuyAgent: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_buyagent_stop": {
+      "type": "agent",
+      "agent": "BuyAgent",
+      "operation": "stop",
+      "label": "BuyAgent: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_buyagent_toggle": {
+      "type": "agent",
+      "agent": "BuyAgent",
+      "operation": "toggle",
+      "label": "BuyAgent: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_sellagent_start": {
+      "type": "agent",
+      "agent": "SellAgent",
+      "operation": "start",
+      "label": "SellAgent: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_sellagent_stop": {
+      "type": "agent",
+      "agent": "SellAgent",
+      "operation": "stop",
+      "label": "SellAgent: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_sellagent_toggle": {
+      "type": "agent",
+      "agent": "SellAgent",
+      "operation": "toggle",
+      "label": "SellAgent: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_dpsmeter_start": {
+      "type": "agent",
+      "agent": "DPSMeter",
+      "operation": "start",
+      "label": "DPSMeter: Start",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_dpsmeter_stop": {
+      "type": "agent",
+      "agent": "DPSMeter",
+      "operation": "stop",
+      "label": "DPSMeter: Stop",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_dpsmeter_toggle": {
+      "type": "agent",
+      "agent": "DPSMeter",
+      "operation": "toggle",
+      "label": "DPSMeter: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_friend_add": {
+      "type": "friend_target",
+      "label": "Friends: Add friend (target)",
+      "category": "agents"
+    },
+    "agent_bone_cutter_toggle": {
+      "type": "builtin_agent",
+      "builtin": "agent_bone_cutter_toggle",
+      "label": "Bone Cutter: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_bone_cutter_set_blade": {
+      "type": "builtin_agent",
+      "builtin": "agent_bone_cutter_set_blade",
+      "label": "Bone Cutter: Set blade",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_auto_carver_toggle": {
+      "type": "builtin_agent",
+      "builtin": "agent_auto_carver_toggle",
+      "label": "Auto Carver: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_auto_carver_set_blade": {
+      "type": "builtin_agent",
+      "builtin": "agent_auto_carver_set_blade",
+      "label": "Auto Carver: Set blade",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_auto_remount_toggle": {
+      "type": "builtin_agent",
+      "builtin": "agent_auto_remount_toggle",
+      "label": "Auto Remount: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_auto_remount_set_mount": {
+      "type": "builtin_agent",
+      "builtin": "agent_auto_remount_set_mount",
+      "label": "Auto Remount: Set mount",
+      "category": "agents",
+      "cooldown_ms": 300
+    },
+    "agent_graphic_filter_toggle": {
+      "type": "builtin_agent",
+      "builtin": "agent_graphic_filter_toggle",
+      "label": "Graphic Filter: Toggle",
+      "category": "agents",
+      "cooldown_ms": 300
+    }
+  },
+  "desktop": {
+    "_comment": "Right stick moves OS cursor. Hold RB/R1 for vertical wheel scroll. Hotkey names follow pynput.keyboard.Key (ctrl, alt, shift, f1, etc.). Configure matching Razor hotkeys manually. Movement uses classic UO numpad direction keys by default. Action chords F1..F12 then Shift+F1..F7 are unique defaults. Printed below in README. OS/RE must register them; injection cannot create Razor bindings.",
+    "cursor_pixels_per_second": 650,
+    "cursor_curve": 1.6,
+    "scroll_per_second": 10,
+    "hotkey_tap_ms": 60,
+    "run_hotkey": [
+      "ctrl"
+    ],
+    "movement_hotkeys": {
+      "North": [
+        "numpad9"
+      ],
+      "Right": [
+        "numpad6"
+      ],
+      "East": [
+        "numpad3"
+      ],
+      "Down": [
+        "numpad2"
+      ],
+      "South": [
+        "numpad1"
+      ],
+      "Left": [
+        "numpad4"
+      ],
+      "West": [
+        "numpad7"
+      ],
+      "Up": [
+        "numpad8"
+      ]
+    },
+    "hotkeys": {
+      "cast_heal": [
+        "f1"
+      ],
+      "cast_cure": [
+        "f2"
+      ],
+      "cast_greater_heal": [
+        "f3"
+      ],
+      "cast_energy_bolt": [
+        "f4"
+      ],
+      "cast_invisibility": [
+        "f5"
+      ],
+      "bandage_self": [
+        "f6"
+      ],
+      "drink_heal": [
+        "f7"
+      ],
+      "drink_cure": [
+        "f8"
+      ],
+      "drink_refresh": [
+        "f9"
+      ],
+      "drink_agility": [
+        "f10"
+      ],
+      "target_self": [
+        "f11"
+      ],
+      "target_last": [
+        "f12"
+      ],
+      "cancel_target": [
+        "shift",
+        "f1"
+      ],
+      "attack_last": [
+        "shift",
+        "f2"
+      ],
+      "cycle_target": [
+        "shift",
+        "f3"
+      ],
+      "switch_weapon": [
+        "shift",
+        "f4"
+      ],
+      "primary_ability": [
+        "shift",
+        "f5"
+      ],
+      "secondary_ability": [
+        "shift",
+        "f6"
+      ],
+      "meditate": [
+        "shift",
+        "f7"
+      ]
+    },
+    "global_cursor": true,
+    "cursor_backend": "windows_desktop"
+  },
+  "controller_ui_version": 2
+}
